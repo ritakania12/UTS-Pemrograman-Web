@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SEKOLAH DASAR KONOHA</title> 
+
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+    <script src="fontawesome.js"></script>
+</head>
+<style type="text/css">
+	body{
+		background-color: #dadada;
+	}
+	.topnav { 
+	  overflow: hidden;
+	  background-color: #333;
+	}
+	.topnav a {
+	  float: left;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.topnav a:hover {
+	  background-color: #ddd;
+	  color: black;
+	} 
+	* {
+	  box-sizing: border-box;
+	}  
+	.content { 
+		width: 70%;  
+		display: table-cell; 
+		padding: 15px;
+		height: 100%;
+	} 
+	.sidebar{
+		width: 30%;
+		display: table-cell;
+		text-align: center;
+		vertical-align: top;
+		height: 100%;
+	}
+	.sidebar-content{
+		padding: 15px;
+	}
+	.sc-header{
+		background-color: #adadad; 
+		height: 50px;
+		line-height: 50px;
+	} 
+	.button-trans{
+		background: transparent;
+		border: none;
+		float: right;
+	}
+	h4{
+		padding: 5px;
+	}
+</style>
+<body> 
+
+	<!-- Menampilkan gambar untuk header -->
+	<img src="bannerr.jpg" style="width: 100%;"> 
+	<div class="topnav">
+	  	<a href="home.html">Home</a> 
+	  	<a href="siswa.php">Siswa</a>
+	  	<a href="contact.html">Contact</a>
+	  	<a href="about.html">About</a>
+	</div>
+	<div class="col-lg-12" style="margin-top: 25px"> 
+		<!-- row = baris dalam bootstrap  -->
+		<div class="row">
+			<!--
+				bootstrap memiliki 12 kolom (col), 
+				lg = untuk layar ukuran besar
+				md = untuk layar ukuran sedang 
+				sm = untuk layar ukuran tablet
+				xs = untuk layar ukuran handphone
+			-->
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+				<img src="background.jpg" style="width: 100%">
+				<h3>Ini adalah halaman home</h3>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+				<div class="sidebar-content">
+					<div class="sc-header">
+						<h4>PENGUMUMAN <button onclick="pengumuman('atas')" class="button-trans"><i class="fas fa-angle-down" id="p1tampil"></i><i class="fas fa-angle-up" id="p1sembunyi"></i></button></h4>
+					</div>
+					<div class="sc-body" id="pengumuman-isi-1">
+						<h5>Mulai minggu depan siswa libur UAS semester ganjil selama 2 minggu.</h5>
+					</div>
+				</div>
+				<div class="sidebar-content" >
+					<div class="sc-header">
+						<h4>PENGUMUMAN <button onclick="pengumuman('bawah')" class="button-trans"><i class="fas fa-angle-down" id="p2tampil"></i><i class="fas fa-angle-up" id="p2sembunyi"></i></button></h4>
+					</div>
+					<div class="sc-body" id="pengumuman-isi-2">
+						<h5>Minggu ini akan ada lomba kebersihan di sekolah xxx, maka dari itu siswa dihimbau untuk lebih menjaga kebersihan.</h5>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	document.getElementById("p1tampil").style.display = "none"; 
+	document.getElementById("p2tampil").style.display = "none"; 
+	//Membuat fungsi pengumuman yang menerima parameter
+	function pengumuman(clue) { 
+		//membuat variable x untuk menyimpan data yang diperlukan
+		var x,t,s;
+		// jika parameter yang diterima adalah 'atas' 
+		if(clue == 'atas'){
+			// simpan isi pengumuman pada variable x
+			x = document.getElementById("pengumuman-isi-1");
+			// simpan data ikon tampil pada variable t
+			t = document.getElementById("p1tampil");
+			// simpan data ikon sembunyi pada variable s
+			s = document.getElementById("p1sembunyi");
+		// jika parameter yang diterima adalah 'bawah' 
+		}else if(clue == 'bawah'){ 
+			// simpan isi pengumuman pada variable x
+			x = document.getElementById("pengumuman-isi-2");
+			// simpan data ikon tampil pada variable t
+			t = document.getElementById("p2tampil");
+			// simpan data ikon sembunyi pada variable s
+			s = document.getElementById("p2sembunyi");
+		}else{}
+
+		// jika isi pengumuman tidak ditampilkan, ubah agar objek muncul pada layar
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		    //tampilkan ikon sembunyi, jika nantinya isi pengumuman akan disembunyikan 
+			s.style.display = "block"; 
+		    //sembunyikan ikon tampil, karena isi pengumuman sudah muncul
+			t.style.display = "none"; 
+
+		// jika isi pengumuman tidak memiliki kesamaan terhadap kondisi di atas, ubah agar isi pengumuman tersebut tidak muncul pada layar
+	  	} else {
+		    x.style.display = "none";
+		    //tampilkan ikon tampil, jika nantinya isi pengumuman akan ditampilkan
+			t.style.display = "block"; 
+		    //sembunyikan ikon sembunyi, karena isi pengumuman sudah tidak muncul
+			s.style.display = "none"; 
+	  	} 
+	} 
+</script>
+</html>
